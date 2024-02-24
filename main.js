@@ -1,3 +1,5 @@
+var osa = require('osa')
+
 const { InstanceBase, Regex, runEntrypoint, InstanceStatus } = require('@companion-module/base')
 const UpgradeScripts = require('./upgrades')
 const UpdateActions = require('./actions')
@@ -17,10 +19,12 @@ class ModuleInstance extends InstanceBase {
 		this.updateActions() // export actions
 		this.updateFeedbacks() // export feedbacks
 		this.updateVariableDefinitions() // export variable definitions
+
+		this.log('info', 'ControlRoom has started')
 	}
 	// When module gets deleted
 	async destroy() {
-		this.log('debug', 'destroy')
+		this.log('info', 'destroy')
 	}
 
 	async configUpdated(config) {
@@ -30,20 +34,20 @@ class ModuleInstance extends InstanceBase {
 	// Return config fields for web config
 	getConfigFields() {
 		return [
-			{
-				type: 'textinput',
-				id: 'host',
-				label: 'Target IP',
-				width: 8,
-				regex: Regex.IP,
-			},
-			{
-				type: 'textinput',
-				id: 'port',
-				label: 'Target Port',
-				width: 4,
-				regex: Regex.PORT,
-			},
+			// {
+			// 	type: 'textinput',
+			// 	id: 'host',
+			// 	label: 'Target IP',
+			// 	width: 8,
+			// 	regex: Regex.IP,
+			// },
+			// {
+			// 	type: 'textinput',
+			// 	id: 'port',
+			// 	label: 'Target Port',
+			// 	width: 4,
+			// 	regex: Regex.PORT,
+			// },
 		]
 	}
 

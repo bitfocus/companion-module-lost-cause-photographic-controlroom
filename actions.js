@@ -1,19 +1,64 @@
+var osa = require('osa')
+
 module.exports = function (self) {
+
+	function togglePin(controllerName, pin) {
+		const controlRoom = Application('ControlRoom');
+
+		controlRoom.includeStandardAdditions = true;
+
+		const ctlr = controlRoom.controllers.byName(controllerName);
+
+		controlRoom.toggle(ctlr, { pin: pin });
+
+		return { name: ctlr.name(), state: ctlr.state() }
+	}
+
+	function responseHandler(err, result, log) {
+		// var stringToPrint;
+
+		self.log('debug', 'Response Log: ' + log)
+
+		if (err) {
+			// console.error(err)
+			self.log('error', 'OSA script returned error: ' + err)
+		} else {
+			// console.log(result)
+			self.log('info', result.name + ' now has state ' + result.state)
+		}
+	}
+
 	self.setActionDefinitions({
-		sample_action: {
-			name: 'My First Action',
+		gpi_key: {
+			name: 'GPI Key',
+			description: 'Toggle a GPI function.',
 			options: [
 				{
-					id: 'num',
-					type: 'number',
-					label: 'Test',
-					default: 5,
-					min: 0,
-					max: 100,
+					id: 'controller',
+					type: 'textinput',
+					label: 'Controller',
+					default: '',
 				},
+				{
+					type: 'dropdown',
+					label: 'GPI Function',
+					id: 'state',
+					default: 1,
+					choices: [
+						{ id: '1', label: 'GPI Pin 1' },
+						{ id: '2', label: 'GPI Pin 2' },
+						{ id: '3', label: 'GPI Pin 3' },
+						{ id: '4', label: 'GPI Pin 4' },
+						{ id: '5', label: 'GPI Pin 5' },
+						{ id: '6', label: 'GPI Pin 6' },
+						{ id: '7', label: 'GPI Pin 7' },
+					],
+				}
 			],
-			callback: async (event) => {
-				console.log('Hello world!', event.options.num)
+			callback: (action, context) => {
+				self.log('info', 'Toggle! ' + action.options.controller + ' pin ' + action.options.num)
+
+				osa(togglePin, action.options.controller, action.options.num, responseHandler)
 			},
 		},
 	})
