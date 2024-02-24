@@ -1,16 +1,16 @@
 {
-	"id": "your-module-name",
-	"name": "your-module-name",
-	"shortname": "module-shortname",
-	"description": "A short one line description of your module",
-	"version": "0.0.0",
+	"id": "companion-module-ControlRoom",
+	"name": "companion-module-ControlRoom",
+	"shortname": "ControlRoom",
+	"description": "Control GPI Controllers from Companion",
+	"version": "0.0.1",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-your-module-name.git",
-	"bugs": "https://github.com/bitfocus/companion-module-your-module-name/issues",
+	"repository": "git+https://github.com/bitfocus/companion-module-ControlRoom.git",
+	"bugs": "https://github.com/bitfocus/companion-module-ControlRoom/issues",
 	"maintainers": [
 		{
-			"name": "Your name",
-			"email": "Your email"
+			"name": "Emory Dunn",
+			"email": "emory@olostcause.photo"
 		}
 	],
 	"runtime": {
@@ -20,7 +20,7 @@
 		"entrypoint": "../main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "Your company",
-	"products": ["Your product"],
+	"manufacturer": "Lost Cause Photographic",
+	"products": ["ControlRoom"],
 	"keywords": []
 }
