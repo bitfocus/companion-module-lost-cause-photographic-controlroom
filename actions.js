@@ -42,7 +42,7 @@ module.exports = function (self) {
 				{
 					type: 'dropdown',
 					label: 'GPI Function',
-					id: 'state',
+					id: 'gpipin',
 					default: 1,
 					choices: [
 						{ id: '1', label: 'GPI Pin 1' },
@@ -56,7 +56,7 @@ module.exports = function (self) {
 				}
 			],
 			callback: (action, context) => {
-				self.log('info', 'Toggle! ' + action.options.controller + ' pin ' + action.options.num)
+				self.log('info', 'Toggle! ' + action.options.controller + ' pin ' + action.options.gpipin)
 
 				osa(togglePin, action.options.controller, action.options.num, responseHandler)
 			},
