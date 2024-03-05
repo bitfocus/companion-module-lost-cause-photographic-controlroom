@@ -7,11 +7,37 @@ module.exports = function (self) {
 
 		controlRoom.includeStandardAdditions = true;
 
-		const ctlr = controlRoom.controllers.byName(controllerName);
+		var ctlr = undefined;
+
+		if (controllerName == "") {
+			ctlr = controlRoom.controllers[0];
+		} else {
+			ctlr = controlRoom.controllers.byName(controllerName);
+		}
 
 		controlRoom.toggle(ctlr, { pin: pin });
 
 		return { name: ctlr.name(), state: ctlr.state() }
+	}
+
+	function setState(controllerName, newState) {
+		const controlRoom = Application('ControlRoom');
+
+		controlRoom.includeStandardAdditions = true;
+
+		var ctlr = undefined;
+
+		if (controllerName == "") {
+			ctlr = controlRoom.controllers[0];
+		} else {
+			ctlr = controlRoom.controllers.byName(controllerName);
+		}
+
+		var oldState = ctlr.state();
+
+		ctlr.state = newState;
+
+		return { name: ctlr.name(), state: newState, oldState: oldState }
 	}
 
 	function listControllers() {
@@ -71,5 +97,22 @@ module.exports = function (self) {
 				osa(togglePin, action.options.controller, action.options.gpipin, responseHandler)
 			},
 		},
+		all_off: {
+			name: 'All Off',
+			description: 'Turn off all pins on a controller.',
+			options: [
+				{
+					id: 'controller',
+					type: 'textinput',
+					label: 'Controller',
+					default: '',
+				}
+			],
+			callback: (action, context) => {
+				self.log('info', 'All Off! ' + action.options.controller)
+
+				osa(setState, action.options.controller, 0, responseHandler)
+			},
+		}
 	})
 }
