@@ -58,7 +58,7 @@ module.exports = function (self) {
 			callback: (action, context) => {
 				self.log('info', 'Toggle! ' + action.options.controller + ' pin ' + action.options.gpipin)
 
-				osa(togglePin, action.options.controller, action.options.num, responseHandler)
+				osa(togglePin, action.options.controller, action.options.gpipin, responseHandler)
 			},
 		},
 	})
