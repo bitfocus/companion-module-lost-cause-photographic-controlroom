@@ -14,6 +14,16 @@ module.exports = function (self) {
 		return { name: ctlr.name(), state: ctlr.state() }
 	}
 
+	function listControllers() {
+		const controlRoom = Application('ControlRoom');
+
+		controlRoom.includeStandardAdditions = true;
+
+		var ctlrs = [].slice.call(controlRoom.controllers());
+
+		return ctlrs.map((c) => c.name() );
+	}
+
 	function responseHandler(err, result, log) {
 		// var stringToPrint;
 
