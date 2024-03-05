@@ -6,10 +6,18 @@ const UpdateActions = require('./actions')
 const UpdateFeedbacks = require('./feedbacks')
 const UpdateVariableDefinitions = require('./variables')
 
+const ListControllers = require('./control_room/list_controllers')
+
 class ModuleInstance extends InstanceBase {
+
+	availableControllers = [
+	];
+
 	constructor(internal) {
 		super(internal)
 	}
+
+
 
 	async init(config) {
 		this.config = config
@@ -52,7 +60,8 @@ class ModuleInstance extends InstanceBase {
 	}
 
 	updateActions() {
-		UpdateActions(this)
+		ListControllers(this)
+		// UpdateActions(this)
 	}
 
 	updateFeedbacks() {

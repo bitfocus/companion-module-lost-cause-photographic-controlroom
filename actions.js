@@ -12,7 +12,7 @@ module.exports = function (self) {
 		if (controllerName == "") {
 			ctlr = controlRoom.controllers[0];
 		} else {
-			ctlr = controlRoom.controllers.byName(controllerName);
+			ctlr = controlRoom.controllers.byId(controllerName);
 		}
 
 		controlRoom.toggle(ctlr, { pin: pin });
@@ -30,7 +30,7 @@ module.exports = function (self) {
 		if (controllerName == "") {
 			ctlr = controlRoom.controllers[0];
 		} else {
-			ctlr = controlRoom.controllers.byName(controllerName);
+			ctlr = controlRoom.controllers.byId(controllerName);
 		}
 
 		var oldState = ctlr.state();
@@ -47,7 +47,7 @@ module.exports = function (self) {
 
 		var ctlrs = [].slice.call(controlRoom.controllers());
 
-		return ctlrs.map((c) => c.name() );
+		return ctlrs.map((c) => ({id: c.serialNumber(), label: c.name()}) );
 	}
 
 	function responseHandler(err, result, log) {
@@ -71,9 +71,10 @@ module.exports = function (self) {
 			options: [
 				{
 					id: 'controller',
-					type: 'textinput',
+					type: 'dropdown',//type: 'textinput',
 					label: 'Controller',
 					default: '',
+					choices: self.availableControllers
 				},
 				{
 					type: 'dropdown',
@@ -103,10 +104,11 @@ module.exports = function (self) {
 			options: [
 				{
 					id: 'controller',
-					type: 'textinput',
+					type: 'dropdown',//type: 'textinput',
 					label: 'Controller',
 					default: '',
-				}
+					choices: self.availableControllers
+				},
 			],
 			callback: (action, context) => {
 				self.log('info', 'All Off! ' + action.options.controller)
