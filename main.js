@@ -9,15 +9,11 @@ const UpdateVariableDefinitions = require('./variables')
 const ListControllers = require('./control_room/list_controllers')
 
 class ModuleInstance extends InstanceBase {
-
-	availableControllers = [
-	];
+	availableControllers = []
 
 	constructor(internal) {
 		super(internal)
 	}
-
-
 
 	async init(config) {
 		this.config = config
@@ -41,22 +37,7 @@ class ModuleInstance extends InstanceBase {
 
 	// Return config fields for web config
 	getConfigFields() {
-		return [
-			// {
-			// 	type: 'textinput',
-			// 	id: 'host',
-			// 	label: 'Target IP',
-			// 	width: 8,
-			// 	regex: Regex.IP,
-			// },
-			// {
-			// 	type: 'textinput',
-			// 	id: 'port',
-			// 	label: 'Target Port',
-			// 	width: 4,
-			// 	regex: Regex.PORT,
-			// },
-		]
+		return []
 	}
 
 	updateActions() {
