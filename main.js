@@ -42,7 +42,6 @@ class ModuleInstance extends InstanceBase {
 
 	updateActions() {
 		ListControllers(this)
-		// UpdateActions(this)
 	}
 
 	updateFeedbacks() {
