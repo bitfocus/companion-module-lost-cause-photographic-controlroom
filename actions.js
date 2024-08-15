@@ -2,41 +2,41 @@ var osa = require('osa')
 
 module.exports = function (self) {
 	function togglePin(controllerName, pin) {
-		const controlRoom = Application('ControlRoom')
+		const controlRoom = Application('ControlRoom');
 
-		controlRoom.includeStandardAdditions = true
+		controlRoom.includeStandardAdditions = true;
 
-		var ctlr = undefined
+		var ctlr = undefined;
 
 		if (controllerName == '') {
-			ctlr = controlRoom.controllers[0]
+			ctlr = controlRoom.controllers[0];
 		} else {
-			ctlr = controlRoom.controllers.byId(controllerName)
+			ctlr = controlRoom.controllers.byId(controllerName);
 		}
 
-		controlRoom.toggle(ctlr, { pin: pin })
+		controlRoom.toggle(ctlr, { pin: pin });
 
-		return { name: ctlr.name(), state: ctlr.state() }
+		return { name: ctlr.name(), state: ctlr.state() };
 	}
 
 	function setState(controllerName, newState) {
-		const controlRoom = Application('ControlRoom')
+		const controlRoom = Application('ControlRoom');
 
-		controlRoom.includeStandardAdditions = true
+		controlRoom.includeStandardAdditions = true;
 
-		var ctlr = undefined
+		var ctlr = undefined;
 
 		if (controllerName == '') {
-			ctlr = controlRoom.controllers[0]
+			ctlr = controlRoom.controllers[0];
 		} else {
-			ctlr = controlRoom.controllers.byId(controllerName)
+			ctlr = controlRoom.controllers.byId(controllerName);
 		}
 
-		var oldState = ctlr.state()
+		var oldState = ctlr.state();
 
-		ctlr.state = newState
+		ctlr.state = newState;
 
-		return { name: ctlr.name(), state: newState, oldState: oldState }
+		return { name: ctlr.name(), state: newState, oldState: oldState };
 	}
 
 	function responseHandler(err, result, log) {
