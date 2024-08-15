@@ -3,7 +3,7 @@
 	"name": "companion-module-lc-photo-controlroom",
 	"shortname": "ControlRoom",
 	"description": "Control GPI Controllers from Companion",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-lc-photo-controlroom.git",
 	"bugs": "https://github.com/bitfocus/companion-module-lc-photo-controlroom/issues",
