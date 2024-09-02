@@ -1,44 +1,9 @@
 var osa = require('osa')
 
+const TogglePin = require('./control_room/toggle_pin')
+const SetState = require('./control_room/set_state')
+
 module.exports = function (self) {
-	function togglePin(controllerName, pin) {
-		const controlRoom = Application('ControlRoom');
-
-		controlRoom.includeStandardAdditions = true;
-
-		var ctlr = undefined;
-
-		if (controllerName == '') {
-			ctlr = controlRoom.controllers[0];
-		} else {
-			ctlr = controlRoom.controllers.byId(controllerName);
-		}
-
-		controlRoom.toggle(ctlr, { pin: pin });
-
-		return { name: ctlr.name(), state: ctlr.state() };
-	}
-
-	function setState(controllerName, newState) {
-		const controlRoom = Application('ControlRoom');
-
-		controlRoom.includeStandardAdditions = true;
-
-		var ctlr = undefined;
-
-		if (controllerName == '') {
-			ctlr = controlRoom.controllers[0];
-		} else {
-			ctlr = controlRoom.controllers.byId(controllerName);
-		}
-
-		var oldState = ctlr.state();
-
-		ctlr.state = newState;
-
-		return { name: ctlr.name(), state: newState, oldState: oldState };
-	}
-
 	function responseHandler(err, result, log) {
 		// var stringToPrint;
 
@@ -84,7 +49,7 @@ module.exports = function (self) {
 			callback: (action, context) => {
 				self.log('info', 'Toggle! ' + action.options.controller + ' pin ' + action.options.gpipin)
 
-				osa(togglePin, action.options.controller, action.options.gpipin, responseHandler)
+				osa(TogglePin, action.options.controller, action.options.gpipin, responseHandler)
 			},
 		},
 		all_off: {
@@ -102,7 +67,7 @@ module.exports = function (self) {
 			callback: (action, context) => {
 				self.log('info', 'All Off! ' + action.options.controller)
 
-				osa(setState, action.options.controller, 0, responseHandler)
+				osa(SetState, action.options.controller, 0, responseHandler)
 			},
 		},
 	})

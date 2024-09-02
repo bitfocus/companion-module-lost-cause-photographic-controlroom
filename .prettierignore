@@ -1,2 +1,5 @@
 package.json
 /LICENSE.md
+src/control_room/list_controllers.js
+src/control_room/toggle_pin.js
+src/control_room/set_state.js

@@ -2,7 +2,6 @@ var osa = require('osa')
 
 const UpdateActions = require('../actions')
 
-// function listControllers(self) {
 module.exports = function (self) {
 	function script() {
 		const controlRoom = Application('ControlRoom');
