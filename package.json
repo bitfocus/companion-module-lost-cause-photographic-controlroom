@@ -1,7 +1,7 @@
 {
 	"name": "ControlRoom-Companion",
 	"version": "0.1.2",
-	"main": "main.js",
+	"main": "src/main.js",
 	"scripts": {
 		"format": "prettier -w .",
 		"package": "companion-module-build"
@@ -12,7 +12,7 @@
 		"url": "git+https://github.com/bitfocus/companion-module-ControlRoom.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.7.0",
+		"@companion-module/base": "~1.8.0",
 		"osa": "2.2.0"
 	},
 	"devDependencies": {
