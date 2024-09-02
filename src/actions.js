@@ -20,12 +20,12 @@ module.exports = function (self) {
 
 	self.setActionDefinitions({
 		gpi_key: {
-			name: 'GPI Key',
-			description: 'Toggle a GPI function.',
+			name: 'GPI Function',
+			description: 'Trigger a GPI function.',
 			options: [
 				{
 					id: 'controller',
-					type: 'dropdown', //type: 'textinput',
+					type: 'dropdown',
 					label: 'Controller',
 					default: '',
 					choices: self.availableControllers,
