@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-ControlRoom.git"
+		"url": "git+https://github.com/bitfocus/companion-module-lc-photo-controlroom.git"
 	},
 	"dependencies": {
 		"@companion-module/base": "~1.8.0",
