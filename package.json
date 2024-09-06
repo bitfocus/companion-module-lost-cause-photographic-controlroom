@@ -1,6 +1,6 @@
 {
 	"name": "ControlRoom-Companion",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"main": "src/main.js",
 	"scripts": {
 		"format": "prettier -w .",
@@ -9,11 +9,11 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-lc-photo-controlroom.git"
+		"url": "git+https://github.com/bitfocus/companion-module-lost-cause-photographic-controlroom.git"
 	},
 	"dependencies": {
 		"@companion-module/base": "~1.8.0",
-		"osa": "2.2.0"
+		"osa": "2.5.0"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^1.4.2"
