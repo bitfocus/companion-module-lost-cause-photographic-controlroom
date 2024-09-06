@@ -2,7 +2,7 @@
 
 Interact with GPI Controllers locally via [ControlRoom](https://lostcause.photo/projects/controlroom/).
 
-- Note: ControlRoom must be running on the same computer as Companion.
+Please note the module is macOS only and Companion must be running on the came computer as ControlRoom.
 
 ### Actions
 
