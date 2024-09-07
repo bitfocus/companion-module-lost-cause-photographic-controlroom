@@ -1,6 +1,6 @@
 {
-	"id": "companion-module-lost-cause-photographic-controlroom",
-	"name": "companion-module-lost-cause-photographic-controlroom",
+	"id": "lost-cause-photographic-controlroom",
+	"name": "lost-cause-photographic-controlroom",
 	"shortname": "ControlRoom",
 	"description": "Control GPI Controllers from Companion",
 	"version": "1.0.0",
