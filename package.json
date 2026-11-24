@@ -1,6 +1,6 @@
 {
 	"name": "ControlRoom-Companion",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "src/main.js",
 	"scripts": {
 		"format": "prettier -w .",
@@ -12,11 +12,11 @@
 		"url": "git+https://github.com/bitfocus/companion-module-lost-cause-photographic-controlroom.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.8.0",
+		"@companion-module/base": "~1.15.1",
 		"osa": "2.5.0"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "^2.8.0"
+		"@companion-module/tools": "^2.9.1"
 	},
 	"prettier": "@companion-module/tools/.prettierrc.json"
 }

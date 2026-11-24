@@ -3,7 +3,7 @@
 	"name": "lost-cause-photographic-controlroom",
 	"shortname": "ControlRoom",
 	"description": "Control GPI Controllers from Companion",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-lost-cause-photographic-controlroom.git",
 	"bugs": "https://github.com/bitfocus/companion-module-lost-cause-photographic-controlroom/issues",
@@ -14,10 +14,13 @@
 		}
 	],
 	"runtime": {
-		"type": "node18",
+		"type": "node26",
 		"api": "nodejs-ipc",
 		"apiVersion": "0.0.0",
-		"entrypoint": "../src/main.js"
+		"entrypoint": "../src/main.js",
+		"permissions": {
+			"child-process": true
+		}
 	},
 	"legacyIds": [],
 	"manufacturer": "Lost Cause Photographic",
